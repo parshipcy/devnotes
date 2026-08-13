@@ -16,9 +16,19 @@ function BankAccount(customerName, balance = 0) {
 const rakeshAccount = new BankAccount("Rakesh");
 
 // BankAccount.prototype.test = "this is test";
-BankAccount.prototype.deposit = function (amount) {
+BankAccount.prototype.deposit = function (amount) { //can't use arrow function here
     this.balance += amount;
 };
 
 rakeshAccount.deposit(1000);
 console.log(rakeshAccount);
+
+/*
+// only avialable for raksehAccount - prototype chaining
+
+const rakeshAccount = new BankAccount("Rakesh");
+rakeshAccount.deposit = function(amount) {
+    this.balance += amount;
+};
+rakeshAccount.deposit(1000);
+*/
