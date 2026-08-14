@@ -11,6 +11,7 @@
 // holds it. In case 2 the name BankAccount is part of the class itself.
 //
 // To get a name in case 1, write: const BankAccount = class BankAccount { ... }
+
 class BankAccount {
     customerName;
     accountNumber;
@@ -36,17 +37,18 @@ rakeshAccount.deposit(1000);
 console.log(rakeshAccount);
 
 
-// Hoisting - can you use something before you write it?
-//
-// Normal functions: YES. JS moves the function to the top behind the scenes,
-// so calling it before the line where you define it still works.
+//Hoisting - can you use something before you write it?
 hello();
 function hello() {
     console.log("Hello");
 }
 
+// Normal functions: YES. JS moves the function to the top behind the scenes,
+// so calling it before the line where you define it still works.
+
+
 // Classes: NO. You must write the class first, then use it.
-// This would crash:
 //
+// This would crash:
 // const acc = new BankAccount("Rakesh"); // error - BankAccount doesn't exist yet
 // class BankAccount { ... }

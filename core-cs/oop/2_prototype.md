@@ -194,3 +194,51 @@ Constructor     →  own data per instance  (customerName, balance, …)
 Prototype       →  shared methods         (deposit, withdraw, …)
 Prototype chain →  how JS looks up methods when they are not on the object itself
 ```
+
+---
+
+The **last prototype you're seeing there is `Object.prototype`**, not String, Array, etc.
+
+In your example:
+
+```text
+SavingAccount object
+        ↓
+SavingAccount.prototype
+        ↓
+Object.prototype
+        ↓
+null
+```
+
+### So whose properties are these?
+
+Things like:
+
+```text
+toString()
+valueOf()
+hasOwnProperty()
+isPrototypeOf()
+propertyIsEnumerable()
+```
+
+belong to **`Object.prototype`**.
+
+They are available to almost every normal JavaScript object because most objects eventually inherit from `Object.prototype`.
+
+For example:
+
+```js
+const user = {};
+```
+
+The chain is:
+
+```text
+user
+ ↓
+Object.prototype
+ ↓
+null
+```
