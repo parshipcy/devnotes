@@ -812,26 +812,6 @@ user.hasOwnProperty(...)
 
 ---
 
-### One correction to your original note
-
-Instead of writing:
-
-```text
-Object.hasOwnProperty() is also a static method
-```
-
-write:
-
-```text
-Object.hasOwn() → static method
-
-user.hasOwnProperty() → instance/prototype method
-```
-
-That's the important distinction.
-
----
-
 ## The whole example in one picture
 
 ```text
