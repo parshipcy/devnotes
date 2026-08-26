@@ -89,13 +89,11 @@ They could interfere with each other and potentially crash the system.
 
 The kernel provides **protection and controlled access**.
 
----
-
-# 3. GUI and CLI
+## GUI and CLI
 
 User space provides different ways for users to interact with the OS.
 
-## GUI
+### GUI
 
 **GUI = Graphical User Interface**
 
@@ -115,9 +113,7 @@ Ubuntu Desktop
 macOS
 ```
 
----
-
-## CLI
+### CLI
 
 **CLI = Command Line Interface**
 
@@ -135,7 +131,7 @@ The commands are received and executed through a **shell**.
 
 ---
 
-# 4. Shell
+## Shell
 
 A **shell** is a command interpreter.
 
@@ -186,7 +182,7 @@ The kernel mainly performs four important types of management:
 
 ---
 
-# 5. Process Management
+## 1. Process Management
 
 A **process** is a program that is currently executing.
 
@@ -202,7 +198,7 @@ The kernel manages these processes.
 
 ### Main responsibilities
 
-### 5.1 CPU Scheduling
+### 1.1 CPU Scheduling
 
 The CPU can execute only a limited number of instructions at a time.
 
@@ -228,7 +224,7 @@ This makes multitasking possible.
 
 ---
 
-### 5.2 Creating and Deleting Processes
+### 1.2 Creating and Deleting Processes
 
 The kernel can create and terminate processes.
 
@@ -256,7 +252,7 @@ Resources released
 
 ---
 
-### 5.3 Suspending and Resuming Processes
+### 1.3 Suspending and Resuming Processes
 
 Sometimes a process does not need the CPU temporarily.
 
@@ -276,7 +272,7 @@ This helps the OS manage CPU resources efficiently.
 
 ---
 
-### 5.4 Process Synchronization and Communication
+### 1.4 Process Synchronization and Communication
 
 Processes sometimes need to work together.
 
@@ -296,7 +292,7 @@ This leads to concepts such as:
 
 ---
 
-# 6. Memory Management
+## 2. Memory Management
 
 The kernel manages the computer's main memory (RAM).
 
@@ -344,7 +340,7 @@ That could cause:
 
 ---
 
-# 7. File Management
+## 3. File Management
 
 The kernel also manages files and directories.
 
@@ -379,7 +375,7 @@ The kernel ultimately coordinates these operations with the storage device.
 
 ---
 
-# 8. I/O Management
+## 4. I/O Management
 
 **I/O = Input/Output**
 
@@ -407,13 +403,11 @@ Three important concepts are:
 
 ---
 
-# 9. Buffering
+### Buffering
 
 **Buffering** temporarily stores data while it is being transferred.
 
-The lecture describes buffering as occurring **within one job**.
-
-### Example: YouTube
+#### Example: YouTube
 
 Suppose your internet connection is slightly slower than the rate at which the video is being played.
 
@@ -429,13 +423,13 @@ Video Player
 
 The buffer stores data temporarily so playback can continue smoothly.
 
-### Why buffering?
+#### Why buffering?
 
 Because the producer and consumer may operate at different speeds.
 
 ---
 
-# 10. Spooling
+### Spooling
 
 **Spooling** is useful when dealing with jobs involving devices that operate at different speeds.
 
@@ -444,7 +438,7 @@ The lecture gives examples such as:
 * Print spooling
 * Mail spooling
 
-### Example: Printing
+#### Example: Printing
 
 Suppose five applications want to print documents.
 
@@ -462,13 +456,13 @@ Application 5 ─┘
 
 The jobs are placed in a queue and processed by the printer one by one.
 
-### Why spooling?
+#### Why spooling?
 
 It allows a fast producer to continue working while a slower device processes the queued jobs.
 
 ---
 
-# 11. Caching
+### Caching
 
 A **cache** stores frequently needed data so that it can be accessed faster next time.
 
@@ -480,7 +474,7 @@ Examples:
 
 The lecture specifically mentions memory caching and web caching.
 
-### Example
+#### Example
 
 Suppose a website loads an image.
 
@@ -496,7 +490,7 @@ Cache → Browser
 
 The second access can be faster.
 
-### Main idea
+#### Main idea
 
 ```text
 Cache = keep frequently used data closer/faster
@@ -504,7 +498,9 @@ Cache = keep frequently used data closer/faster
 
 ---
 
-# 12. Monolithic Kernel
+# Types of Kernels:
+
+## 1. Monolithic Kernel
 
 In a **monolithic kernel**, most OS functions run inside the kernel.
 
@@ -555,7 +551,7 @@ If a critical kernel component crashes, it can potentially bring down the entire
 
 ---
 
-# 13. Microkernel
+## 2. Microkernel
 
 A **microkernel** keeps only the most essential functionality inside the kernel.
 
@@ -619,7 +615,7 @@ These transitions introduce overhead.
 
 ---
 
-# 14. Monolithic vs Microkernel
+## Monolithic vs Microkernel
 
 | Feature                | Monolithic               | Microkernel              |
 | ---------------------- | ------------------------ | ------------------------ |
@@ -639,7 +635,7 @@ These transitions introduce overhead.
 
 ---
 
-# 15. Hybrid Kernel
+## 3. Hybrid Kernel
 
 A **hybrid kernel** combines ideas from both monolithic and microkernel designs.
 
@@ -673,7 +669,7 @@ Some components remain in kernel space for performance, while other components c
 
 ---
 
-# 16. Kernel Types: Quick Comparison
+## Kernel Types: Quick Comparison
 
 ```text
 Monolithic
@@ -698,7 +694,7 @@ Attempts to balance performance + modularity
 
 ---
 
-# 17. User Mode vs Kernel Mode
+## User Mode vs Kernel Mode
 
 A computer generally separates execution into different privilege levels.
 
@@ -752,9 +748,9 @@ Privileged hardware access
 
 ---
 
-# 18. How Does User Mode Communicate With Kernel Mode?
+## How Does User Mode Communicate With Kernel Mode?
 
-The lecture answers this using **IPC (Inter-Process Communication)**.
+Using **IPC (Inter-Process Communication)**.
 
 Two processes normally have:
 
@@ -770,7 +766,7 @@ Two mechanisms mentioned are:
 
 ---
 
-# 19. Shared Memory
+## Shared Memory
 
 Two processes communicate using a shared region of memory.
 
@@ -796,7 +792,7 @@ Processes need proper synchronization to prevent conflicts.
 
 ---
 
-# 20. Message Passing
+## Message Passing
 
 Instead of sharing memory, processes send messages to each other.
 
@@ -822,100 +818,3 @@ Better isolation because processes do not directly share their memory.
 ### Disadvantage
 
 Sending and receiving messages introduces communication overhead.
-
----
-
-# Quick Revision
-
-## Kernel
-
-**Core of OS that manages hardware and system resources.**
-
-## User Space
-
-**Where normal applications run.**
-
-## Shell
-
-**Command interpreter that receives and executes user commands.**
-
-## Process Management
-
-Manages:
-
-* CPU scheduling
-* Process creation/deletion
-* Suspending/resuming
-* Synchronization/communication
-
-## Memory Management
-
-Manages:
-
-* Memory allocation
-* Memory deallocation
-* Tracking memory usage
-
-## File Management
-
-Manages:
-
-* Files
-* Directories
-* Storage mapping
-* Backup support
-
-## I/O Management
-
-Manages:
-
-* Input/output devices
-* Buffering
-* Caching
-* Spooling
-
----
-
-# Most Important Differences
-
-### Buffering vs Caching vs Spooling
-
-| Concept   | Main Idea                                   | Example                 |
-| --------- | ------------------------------------------- | ----------------------- |
-| Buffering | Temporarily hold data during a job          | YouTube video buffering |
-| Caching   | Store frequently used data for faster reuse | Web cache               |
-| Spooling  | Queue jobs for a slower device              | Print queue             |
-
-### Kernel Types
-
-| Type        | Main Idea                          | Main Benefit         | Main Problem           |
-| ----------- | ---------------------------------- | -------------------- | ---------------------- |
-| Monolithic  | Most functions in kernel           | Performance          | Large, less isolated   |
-| Microkernel | Only essential functions in kernel | Stability/modularity | Communication overhead |
-| Hybrid      | Combination of both                | Balance              | More complex design    |
-
----
-
-# One-Line Mental Model
-
-Remember the whole lecture like this:
-
-```text
-                 USER
-                  ↓
-          Applications
-                  ↓
-             User Space
-                  ↓
-              Kernel
-        ┌─────────┼─────────┐
-        ↓         ↓         ↓
-     Process    Memory     Files
-     Mgmt       Mgmt       Mgmt
-                  ↓
-             I/O Management
-                  ↓
-               Hardware
-```
-
-The **kernel is the central manager** that controls access to CPU, memory, storage, and I/O devices while keeping applications isolated from direct hardware access.
