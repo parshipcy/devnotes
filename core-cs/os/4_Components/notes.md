@@ -427,13 +427,11 @@ The buffer stores data temporarily so playback can continue smoothly.
 
 Because the producer and consumer may operate at different speeds.
 
----
-
-### Spooling
+#### Spooling
 
 **Spooling** is useful when dealing with jobs involving devices that operate at different speeds.
 
-The lecture gives examples such as:
+Examples such as:
 
 * Print spooling
 * Mail spooling
@@ -471,8 +469,6 @@ Examples:
 * CPU cache
 * Memory cache
 * Web cache
-
-The lecture specifically mentions memory caching and web caching.
 
 #### Example
 
@@ -517,8 +513,6 @@ For example:
 +-------------------------+
 ```
 
-The lecture describes this approach as having all major functions inside the kernel.
-
 ### Advantages
 
 **1. High performance**
@@ -543,7 +537,7 @@ More functionality needs to be loaded into kernel space.
 
 If a critical kernel component crashes, it can potentially bring down the entire system.
 
-### Examples from the lecture
+### Examples
 
 * Linux
 * Unix
@@ -572,8 +566,6 @@ For example:
 | I/O Management       |
 +-----------------------+
 ```
-
-The lecture identifies process management and memory management as major kernel responsibilities, while file and I/O management are moved to user space.
 
 ### Advantages
 
@@ -607,31 +599,11 @@ User Space
 
 These transitions introduce overhead.
 
-### Examples from the lecture
+### Examples
 
 * L4
 * Symbian OS
 * MINIX
-
----
-
-## Monolithic vs Microkernel
-
-| Feature                | Monolithic               | Microkernel              |
-| ---------------------- | ------------------------ | ------------------------ |
-| Kernel size            | Large                    | Small                    |
-| Functions              | More functions in kernel | Only essential functions |
-| Performance            | Generally faster         | Generally slower         |
-| Reliability            | Lower                    | Higher                   |
-| Modularity             | Lower                    | Higher                   |
-| Communication overhead | Lower                    | Higher                   |
-| Failure isolation      | Lower                    | Better                   |
-
-### Easy way to remember
-
-**Monolithic = Everything together**
-
-**Microkernel = Keep kernel minimal**
 
 ---
 
@@ -647,8 +619,6 @@ Performance of Monolithic
 Modularity/Stability of Microkernel
 ```
 
-The lecture describes the hybrid approach as a combination of the two designs.
-
 ### General idea
 
 Some components remain in kernel space for performance, while other components can be separated to improve modularity.
@@ -660,7 +630,7 @@ Some components remain in kernel space for performance, while other components c
 * Better stability than a purely monolithic design
 * Reduced communication overhead compared with a pure microkernel approach
 
-### Examples from the lecture
+### Examples
 
 * macOS
 * Windows NT
@@ -782,13 +752,38 @@ Process B
 
 Both processes can access the shared area.
 
-### Advantage
+### Advantages
 
-Very fast because processes can communicate through memory.
+**1. Fast**
 
-### Disadvantage
+Processes can communicate through memory directly, so it can be faster than message passing, especially for large amounts of data.
 
-Processes need proper synchronization to prevent conflicts.
+**2. Efficient for large data**
+
+Instead of repeatedly copying large data into messages, processes can work with a shared memory region.
+
+**3. Less communication overhead**
+
+Once the shared memory is established, accessing it can be relatively efficient.
+
+### Disadvantages
+
+**1. Synchronization is required**
+
+This is the big disadvantage.
+
+Imagine:
+
+```text
+Process A → writes "100"
+Process B → reads at the same time
+```
+
+What happens if both access the shared data simultaneously?
+
+You can get inconsistent or incorrect results.
+
+Therefore, mechanisms such as **mutexes, semaphores, or locks** may be needed.
 
 ---
 
@@ -811,10 +806,35 @@ Process A: "Here is the data."
 Process B: "Received."
 ```
 
-### Advantage
+### Advantages
 
-Better isolation because processes do not directly share their memory.
+1. **Better isolation**
 
-### Disadvantage
+   * Processes keep their own memory.
+   * One process cannot directly modify another process's memory.
+   * This improves safety.
 
-Sending and receiving messages introduces communication overhead.
+2. **Easier to manage**
+
+   * Processes communicate through clearly defined `send()` and `receive()` operations.
+   * You don't need to manage a common memory area.
+
+3. **Works well between independent processes**
+
+   * Useful when processes are running separately but still need to exchange information.
+
+### Disadvantages
+
+1. **Slower than shared memory**
+
+   * Data has to be transferred through messages.
+   * This creates communication overhead.
+
+2. **More kernel involvement**
+
+   * The OS/kernel generally has to manage the sending and receiving of messages.
+   * This can involve mode switches and copying data.
+
+3. **Not ideal for large amounts of data**
+
+   * If a large amount of data has to be repeatedly transferred, copying messages can become expensive.
