@@ -718,7 +718,7 @@ Privileged hardware access
 
 ---
 
-## How Does User Mode Communicate With Kernel Mode?
+## How Do Processes Communicate With Each Other?
 
 Using **IPC (Inter-Process Communication)**.
 
