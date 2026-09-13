@@ -757,39 +757,103 @@ Without saving this state, the process would not know where or how to continue c
 
 # Very Important: PCB vs CPU Registers
 
-Don't mix these up.
+### Forget Process B for a moment.
 
-### CPU registers
-
-These are **actual hardware registers inside the CPU**.
+Imagine Process A is running.
 
 ```text
 CPU
-├── PC
-├── SP
-├── General-purpose registers
-└── Status/flags
+┌─────────────────────┐
+│ Register = 10       │
+│ Register = 20       │
+│ PC = 500            │
+└─────────────────────┘
+        ↓
+    Process A
 ```
 
-### Registers stored in PCB
+The **registers are actual tiny storage locations inside the CPU**.
 
-The PCB contains **saved copies of the values** of relevant CPU registers for that process.
+So right now:
+
+> CPU registers are holding values that Process A is using.
+
+---
+
+### Now A has to stop
+
+The OS wants to give the CPU to another process.
+
+But the OS cannot just forget A's current values.
+
+So it takes a **copy of those values** and puts them in A's PCB.
 
 ```text
-CPU register values
-        ↓
-   Save to PCB
-        ↓
-  Context switch
-        ↓
-   Later restore
-        ↓
-   CPU registers
+CPU registers
+     ↓
+   COPY
+     ↓
+PCB of A
+┌─────────────────────┐
+│ Register = 10       │
+│ Register = 20       │
+│ PC = 500            │
+└─────────────────────┘
 ```
 
-So the PCB does **not contain another physical CPU**.
+That's it.
 
-It is a data structure in memory that stores the process's state.
+**The PCB is basically the OS's record of A's CPU state.**
+
+---
+
+### Then B runs
+
+The CPU registers are now used by Process B.
+
+```text
+PCB of B
+     ↓
+values loaded into
+     ↓
+CPU registers
+     ↓
+Process B runs
+```
+
+---
+
+### Later A runs again
+
+The OS takes A's saved values from its PCB:
+
+```text
+PCB of A
+┌─────────────────────┐
+│ Register = 10       │
+│ Register = 20       │
+│ PC = 500            │
+└─────────────────────┘
+        ↓
+CPU registers
+        ↓
+Process A continues
+```
+
+So A can continue from where it stopped.
+
+---
+
+## The one thing you should remember
+
+```text
+CPU REGISTER
+= actual tiny storage inside CPU
+
+PCB
+= memory structure used by OS to SAVE information
+  about a process, including its register values
+```
 
 ---
 
