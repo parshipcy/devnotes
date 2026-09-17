@@ -1,4 +1,0 @@
-# Mark markdown files as code (not documentation) for language statistics
-*.md linguist-detectable=true
-*.md linguist-documentation=false
-*.md linguist-language=Markdown
