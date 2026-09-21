@@ -33,6 +33,8 @@
 | CS Fundamentals - OS | 11. Swapping, context switching, orphan & zombie process | [11_swapping](<CS Fundamentals/operating-system/11_swapping.md>) |
 | CS Fundamentals - OS | 12. Process scheduling, FCFS, convoy effect | [12_fcfs](<CS Fundamentals/operating-system/12_fcfs.md>) |
 | CS Fundamentals - OS | 13. CPU scheduling: SJF, priority, round robin | [13_sjf_rr](<CS Fundamentals/operating-system/13_sjf_rr.md>) |
+| CS Fundamentals - OS | 14. MLQ & MLFQ | [14_mlq_mlfq](<CS Fundamentals/operating-system/14_mlq_mlfq.md>) |
+| CS Fundamentals - OS | 14. Introduction to Concurrency | [15_concurrency](<CS Fundamentals/operating-system/15_concurrency.md>) |
 
 ### Object-Oriented Programming
 | Section | Topic | File |
