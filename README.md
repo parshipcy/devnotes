@@ -36,6 +36,7 @@
 | CS Fundamentals - OS | 14. MLQ & MLFQ | [14_mlq_mlfq](<CS Fundamentals/operating-system/14_mlq_mlfq.md>) |
 | CS Fundamentals - OS | 15. Introduction to Concurrency | [15_concurrency](<CS Fundamentals/operating-system/15_concurrency.md>) |
 | CS Fundamentals - OS | 16. Critical Section Problem | [16_critical_section](<CS Fundamentals/operating-system/16_critical_section.md>) |
+| CS Fundamentals - OS | 17. Conditional Variables and Semaphores for Threads synchronization | [17_conditional_vaiable_semaphores](<CS Fundamentals/operating-system/17_conditional_vaiable_semaphores.md>) |
 
 ### Object-Oriented Programming
 | Section | Topic | File |
