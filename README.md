@@ -39,6 +39,7 @@
 | CS Fundamentals - OS | 17. Conditional Variables and Semaphores for Threads synchronization | [notes](<CS Fundamentals/operating-system/17_conditional_vaiable_semaphores.md>) |
 | CS Fundamentals - OS | 18. Producer-Consumer Problem | [notes](<CS Fundamentals/operating-system/18_producer_consumer.md>) |
 | CS Fundamentals - OS | 19. Reader-Writer Problem | [notes](<CS Fundamentals/operating-system/19_reader_writer.md>) |
+| CS Fundamentals - OS | 20. Dining Philosophers Problem | [notes](<CS Fundamentals/operating-system/20_dining_philosophers.md>) |
 
 ### Object-Oriented Programming
 | Section | Topic | File |
