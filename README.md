@@ -40,6 +40,7 @@
 | CS Fundamentals - OS | 18. Producer-Consumer Problem | [notes](<CS Fundamentals/operating-system/18_producer_consumer.md>) |
 | CS Fundamentals - OS | 19. Reader-Writer Problem | [notes](<CS Fundamentals/operating-system/19_reader_writer.md>) |
 | CS Fundamentals - OS | 20. Dining Philosophers Problem | [notes](<CS Fundamentals/operating-system/20_dining_philosophers.md>) |
+| CS Fundamentals - OS | 21. Deadlock Part 1 | [notes](<CS Fundamentals/operating-system/21_deadlock_1.md>) |
 
 ### Object-Oriented Programming
 | Section | Topic | File |
