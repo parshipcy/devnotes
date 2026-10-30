@@ -41,6 +41,7 @@
 | CS Fundamentals - OS | 19. Reader-Writer Problem | [notes](<CS Fundamentals/operating-system/19_reader_writer.md>) |
 | CS Fundamentals - OS | 20. Dining Philosophers Problem | [notes](<CS Fundamentals/operating-system/20_dining_philosophers.md>) |
 | CS Fundamentals - OS | 21. Deadlock Part 1 | [notes](<CS Fundamentals/operating-system/21_deadlock_1.md>) |
+| CS Fundamentals - OS | 22. Deadlock Part 2 | [notes](<CS Fundamentals/operating-system/22_deadlock_2.md>) |
 
 ### Object-Oriented Programming
 | Section | Topic | File |
