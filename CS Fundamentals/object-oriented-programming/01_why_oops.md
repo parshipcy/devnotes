@@ -73,22 +73,58 @@ E-commerce
 
 OOP lets you model these things as objects.
 
-### But important for JavaScript
+---
 
-You **don't need OOP everywhere**.
+In JavaScript, constructor functions and classes are two ways to create objects with similar structures and behaviours.
+Classes were introduced in ES6 (2015). They provide cleaner syntax for JavaScript's existing prototype-based inheritance system.
 
-For a small React component:
-
+### 1. Constructor Function
+Before ES6, developers commonly used constructor functions to create multiple objects.
 ```js
-const add = (a, b) => a + b;
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+
+    this.greet = function() {
+        console.log("Hello " + this.name);
+    };
+}
+
+const p1 = new Person("Rahul", 23);
+const p2 = new Person("Amit", 25);
+
+p1.greet(); // Hello Rahul
 ```
 
-There's no reason to create a class.
+How does it work?
+1. Person is a constructor function.
+2. new Person() creates a new object.
+3. this refers to that newly created object.
+4. Properties are assigned to the new object.
 
-Modern JavaScript commonly uses a **mix of functional programming and OOP**.
+### 2. Class
+ES6 introduced the class keyword to provide a cleaner way to create objects.
 
-**Beginner rule:**
+```js
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
 
-> If you have many objects that share the same structure and behavior, OOP can make your code easier to organize.
+    greet() {
+        console.log("Hello " + this.name);
+    }
+}
 
-And don't worry about learning all the OOP concepts immediately. First understand **object → class → constructor → `this` → methods → inheritance**, then go deeper.
+const p1 = new Person("Rahul", 23);
+const p2 = new Person("Amit", 25);
+
+p1.greet(); // Hello Rahul
+```
+
+Here:
+- class Person defines a class.
+- constructor() initializes the object.
+- new Person() creates an instance.
+- this refers to the newly created object.
